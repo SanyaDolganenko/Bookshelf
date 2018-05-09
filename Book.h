@@ -25,7 +25,8 @@ public:
 
 
 void Book::print() {
-    printf("Title:%s\nAuthor:%s\nYear:%d\nText:%s\n", title, author, year, text);
+    printf("\nTitle:%s\nAuthor:%s\nYear:%d\nText:%s\n", title, author, year, text);
+    printf("______________________");
 }
 
 Book::Book(char *title, char *author, char *text, int year) : title(title), author(author), text(text), year(year) {}

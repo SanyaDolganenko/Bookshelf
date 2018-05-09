@@ -40,7 +40,7 @@ Bookshelf::Bookshelf(int capacityRows, int capacityColumns) : capacityRows(capac
 void Bookshelf::addBook(Book *book) {
     if ((lastBookColumn == capacityColumns - 1)
         && (lastBookRow == capacityRows - 1)) {
-        printf("Bookshelf is full!");
+        printf("\nBookshelf is full!\n");
     } else {
         if (lastBookColumn == capacityColumns - 1) {
             lastBookColumn = 0;
@@ -54,8 +54,12 @@ void Bookshelf::addBook(Book *book) {
 
 void Bookshelf::printAllBooks() {
     for (int i = 0; i <= lastBookRow; i++) {
-        for (int b = 0; b <= lastBookColumn; b++) {
-            books[i][b].print();
+        for (int b = 0; b < capacityColumns; b++) {
+            if (i == lastBookRow && b > lastBookColumn) {
+                return;
+            } else {
+                books[i][b].print();
+            }
         }
     }
 }

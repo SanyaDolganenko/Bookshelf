@@ -10,6 +10,15 @@ int main() {
     Book book(title, author, text, 1999);
     Bookshelf bookshelf(3, 3);
     bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
+    bookshelf.addBook(&book);
     bookshelf.printAllBooks();
     return 0;
 }
