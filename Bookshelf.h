@@ -16,13 +16,13 @@ public :
 
     Bookshelf(int capacityRows, int capacityColumns);
 
-    void addBook(Book *book);
+    void putBook(Book *book, int row, int column);
 
     void printAllBooks();
 
 private:
-    int lastBookRow;
-    int lastBookColumn;
+//    int lastBookRow;
+//    int lastBookColumn;
 
 };
 
@@ -33,32 +33,30 @@ Bookshelf::Bookshelf(int capacityRows, int capacityColumns) : capacityRows(capac
         books[i] = (Book *) malloc(capacityColumns * sizeof(Book));
     }
 
-    lastBookRow = 0;
-    lastBookColumn = -1;
+//    lastBookRow = 0;
+//    lastBookColumn = -1;
 }
 
-void Bookshelf::addBook(Book *book) {
-    if ((lastBookColumn == capacityColumns - 1)
-        && (lastBookRow == capacityRows - 1)) {
-        printf("\nBookshelf is full!\n");
+void Bookshelf::putBook(Book *book, int row, int column) {
+    if (row >= capacityRows || column > capacityColumns || row < 0 || column < 0) {
+        printf("\nCannot place book outside the bookshelf!\n");
     } else {
-        if (lastBookColumn == capacityColumns - 1) {
-            lastBookColumn = 0;
-            lastBookRow++;
+        Book bookAtPosition = books[row][column];
+        if (bookAtPosition.exists) {
+            printf("\nThere already is a book at row %d, column %d", row, column);
         } else {
-            lastBookColumn++;
+            books[row][column] = *book;
         }
-        books[lastBookRow][lastBookColumn] = *book;
     }
 }
 
 void Bookshelf::printAllBooks() {
-    for (int i = 0; i <= lastBookRow; i++) {
-        for (int b = 0; b < capacityColumns; b++) {
-            if (i == lastBookRow && b > lastBookColumn) {
-                return;
-            } else {
-                books[i][b].print();
+    for (int row = 0; row < capacityRows; row++) {
+        for (int column = 0; column < capacityColumns; column++) {
+            Book book = books[row][column];
+            if (book.exists) {
+                printf("\nBook at row %d, column %d", row, column);
+                book.print();
             }
         }
     }

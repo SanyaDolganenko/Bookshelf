@@ -9,16 +9,6 @@ int main() {
     char text[]{"This is some text"};
     Book book(title, author, text, 1999);
     Bookshelf bookshelf(3, 3);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.addBook(&book);
-    bookshelf.printAllBooks();
+    bookshelf.putBook(&book, 0, 0);
     return 0;
 }

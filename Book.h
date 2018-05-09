@@ -15,13 +15,15 @@ public:
     char *author;
     char *text;
     int year;
+    bool exists;
 
     //Book(char *title, char *author, int year, char *text);
     Book(char *title, char *author, char *text, int year);
 
     void print();
-};
 
+    void setExists(bool exists);
+};
 
 
 void Book::print() {
@@ -29,7 +31,13 @@ void Book::print() {
     printf("______________________");
 }
 
-Book::Book(char *title, char *author, char *text, int year) : title(title), author(author), text(text), year(year) {}
+Book::Book(char *title, char *author, char *text, int year) : title(title), author(author), text(text), year(year) {
+    exists = true;
+}
+
+void Book::setExists(bool exists) {
+    this->exists = exists;
+}
 
 
 #endif //BOOKSHELF_BOOK_H
