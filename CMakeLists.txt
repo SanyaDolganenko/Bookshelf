@@ -3,4 +3,4 @@ project(BookShelf)
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(BookShelf main.cpp Book.h IntegerUtils.cpp IntegerUtils.h)
+add_executable(BookShelf main.cpp Book.h IntegerUtils.cpp IntegerUtils.h Bookshelf.h)
